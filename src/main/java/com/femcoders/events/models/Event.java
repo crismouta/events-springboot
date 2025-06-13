@@ -14,6 +14,9 @@ public class Event {
     private String description;
     private double price;
 
+    public Event() {
+    }
+
     public Event(String name, String description,  Double price) {
         this.name= name;
         this.description =description;
