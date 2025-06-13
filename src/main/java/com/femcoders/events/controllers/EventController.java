@@ -1,7 +1,10 @@
 package com.femcoders.events.controllers;
 
+import com.femcoders.events.dtos.EventRequest;
+import com.femcoders.events.dtos.EventResponse;
 import com.femcoders.events.models.Event;
 import com.femcoders.events.services.EventService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,15 +23,12 @@ public class EventController {
     }
 
     @GetMapping("/events")
-    public ResponseEntity<List<Event>> getAllEvents() {
-        List<Event> events = eventService.getAllEvents();
-        return new ResponseEntity<List<Event>>(events, HttpStatus.OK);
-        //return eventService.getAllEvents();
+    public ResponseEntity<List<EventResponse>> getAllEvents() {
+       return new ResponseEntity<>(eventService.getAllEvents(),HttpStatus.OK);
     }
 
     @PostMapping("/events")
-    public ResponseEntity<Event> addEvent(@RequestBody Event newEvent) {
-        Event createdEvent = eventService.addEvent(newEvent);
-        return new ResponseEntity<Event>(createdEvent, HttpStatus.CREATED);
+    public ResponseEntity<EventResponse> addEvent(@Valid @RequestBody EventRequest eventRequest) {
+        return new ResponseEntity<>(eventService.addEvent(eventRequest), HttpStatus.CREATED);
     }
 }

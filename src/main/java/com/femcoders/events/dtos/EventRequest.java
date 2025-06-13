@@ -1,0 +1,14 @@
+package com.femcoders.events.dtos;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
+public record EventRequest(
+        @NotBlank(message = "Name is required")
+        @Size(min = 2, max = 50, message = "Name must contain min 2 and max 50 characters")
+        String name,
+        @NotBlank(message = "Description is required")
+        String description,
+        Double price
+) {
+}

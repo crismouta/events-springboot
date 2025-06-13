@@ -1,6 +1,8 @@
 package com.femcoders.events.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name="events")
@@ -12,7 +14,10 @@ public class Event {
     private String description;
     private double price;
 
-    public Event() {
+    public Event(String name, String description,  Double price) {
+        this.name= name;
+        this.description =description;
+        this.price=price;
     }
 
     public Long getId() {
