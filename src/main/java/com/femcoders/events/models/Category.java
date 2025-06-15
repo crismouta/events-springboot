@@ -2,9 +2,6 @@ package com.femcoders.events.models;
 
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Entity
 @Table(name="categories")
 public class Category {
@@ -12,7 +9,6 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-
 
     public Category() {
     }
