@@ -1,4 +1,4 @@
-package com.femcoders.events.dtos;
+package com.femcoders.events.dtos.event;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

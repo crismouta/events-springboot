@@ -1,8 +1,7 @@
 package com.femcoders.events.controllers;
 
-import com.femcoders.events.dtos.EventRequest;
-import com.femcoders.events.dtos.EventResponse;
-import com.femcoders.events.models.Event;
+import com.femcoders.events.dtos.event.EventRequest;
+import com.femcoders.events.dtos.event.EventResponse;
 import com.femcoders.events.services.EventService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;

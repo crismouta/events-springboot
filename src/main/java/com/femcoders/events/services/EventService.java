@@ -1,8 +1,8 @@
 package com.femcoders.events.services;
 
-import com.femcoders.events.dtos.EventMapper;
-import com.femcoders.events.dtos.EventRequest;
-import com.femcoders.events.dtos.EventResponse;
+import com.femcoders.events.dtos.event.EventMapper;
+import com.femcoders.events.dtos.event.EventRequest;
+import com.femcoders.events.dtos.event.EventResponse;
 import com.femcoders.events.models.Event;
 import com.femcoders.events.repositories.EventRepository;
 import org.springframework.stereotype.Service;

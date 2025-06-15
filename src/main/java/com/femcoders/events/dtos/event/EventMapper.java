@@ -1,4 +1,4 @@
-package com.femcoders.events.dtos;
+package com.femcoders.events.dtos.event;
 
 import com.femcoders.events.models.Event;
 
