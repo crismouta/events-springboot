@@ -1,5 +1,6 @@
 package com.femcoders.events.dtos.event;
 
+import com.femcoders.events.models.Category;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
@@ -9,6 +10,7 @@ public record EventRequest(
         String name,
         @NotBlank(message = "Description is required")
         String description,
-        Double price
+        Double price,
+        String categoryName
 ) {
 }
