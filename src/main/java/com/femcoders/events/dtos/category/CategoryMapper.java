@@ -1,9 +1,6 @@
 package com.femcoders.events.dtos.category;
 
 import com.femcoders.events.models.Category;
-import com.femcoders.events.models.Event;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class CategoryMapper {

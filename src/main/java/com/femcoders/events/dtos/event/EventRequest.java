@@ -1,6 +1,5 @@
 package com.femcoders.events.dtos.event;
 
-import com.femcoders.events.models.Category;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 

@@ -6,14 +6,12 @@ import com.femcoders.events.services.EventService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("/events")
 public class EventController {
     private final EventService eventService;
 
@@ -21,12 +19,12 @@ public class EventController {
         this.eventService = eventService;
     }
 
-    @GetMapping("/events")
+    @GetMapping
     public ResponseEntity<List<EventResponse>> getAllEvents() {
        return new ResponseEntity<>(eventService.getAllEvents(),HttpStatus.OK);
     }
 
-    @PostMapping("/events")
+    @PostMapping
     public ResponseEntity<EventResponse> addEvent(@Valid @RequestBody EventRequest eventRequest) {
         return new ResponseEntity<>(eventService.addEvent(eventRequest), HttpStatus.CREATED);
     }

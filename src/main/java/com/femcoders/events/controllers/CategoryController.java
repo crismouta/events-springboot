@@ -6,14 +6,12 @@ import com.femcoders.events.services.CategoryService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("/categories")
 public class CategoryController {
 
     private final CategoryService categoryService;
@@ -22,12 +20,12 @@ public class CategoryController {
         this.categoryService = categoryService;
     }
 
-    @GetMapping("/categories")
+    @GetMapping
     public ResponseEntity<List<CategoryResponse>> getAllCategories() {
         return new ResponseEntity<>(categoryService.getCategories(), HttpStatus.OK);
     }
 
-    @PostMapping("/categories")
+    @PostMapping
     public ResponseEntity<CategoryResponse> addCategory (@Valid @RequestBody CategoryRequest categoryRequest) {
         CategoryResponse newECategory = categoryService.addCategory(categoryRequest);
         return new ResponseEntity<>(newECategory, HttpStatus.CREATED);

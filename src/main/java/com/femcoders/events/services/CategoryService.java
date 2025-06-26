@@ -5,7 +5,6 @@ import com.femcoders.events.dtos.category.CategoryRequest;
 import com.femcoders.events.dtos.category.CategoryResponse;
 import com.femcoders.events.models.Category;
 import com.femcoders.events.repositories.CategoryRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
