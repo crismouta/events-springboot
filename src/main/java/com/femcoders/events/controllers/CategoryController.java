@@ -2,6 +2,7 @@ package com.femcoders.events.controllers;
 
 import com.femcoders.events.dtos.category.CategoryRequest;
 import com.femcoders.events.dtos.category.CategoryResponse;
+import com.femcoders.events.dtos.event.EventResponse;
 import com.femcoders.events.services.CategoryService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -23,6 +24,12 @@ public class CategoryController {
     @GetMapping
     public ResponseEntity<List<CategoryResponse>> getAllCategories() {
         return new ResponseEntity<>(categoryService.getCategories(), HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<CategoryResponse> getCategoryById(@PathVariable Long id) {
+
+        return new ResponseEntity<>(categoryService.getCategoryById(id), HttpStatus.OK);
     }
 
     @PostMapping

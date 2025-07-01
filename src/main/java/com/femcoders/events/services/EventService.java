@@ -3,6 +3,8 @@ package com.femcoders.events.services;
 import com.femcoders.events.dtos.event.EventMapper;
 import com.femcoders.events.dtos.event.EventRequest;
 import com.femcoders.events.dtos.event.EventResponse;
+import com.femcoders.events.exception.EntityNotFoundException;
+import com.femcoders.events.exception.EventNotFoundException;
 import com.femcoders.events.models.Category;
 import com.femcoders.events.models.Event;
 import com.femcoders.events.repositories.CategoryRepository;
@@ -24,6 +26,11 @@ public class EventService {
     public List<EventResponse> getAllEvents() {
         List<Event> events = eventRepository.findAll();
         return events.stream().map(event -> EventMapper.entityToDto(event)).toList();
+    }
+
+    public EventResponse getEventById (Long id) {
+        Event event = eventRepository.findById(id).orElseThrow(() -> new EntityNotFoundException(Event.class.getSimpleName(), id));
+        return EventMapper.entityToDto(event);
     }
 
     public EventResponse addEvent(EventRequest eventRequest){

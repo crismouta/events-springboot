@@ -24,6 +24,17 @@ public class EventController {
        return new ResponseEntity<>(eventService.getAllEvents(),HttpStatus.OK);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<EventResponse> getEventById(@PathVariable Long id) {
+        /*try {
+            return new ResponseEntity<>(eventService.getEventById(id), HttpStatus.OK);
+        } catch (IllegalArgumentException exception) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
+        }*/
+
+        return new ResponseEntity<>(eventService.getEventById(id), HttpStatus.OK);
+    }
+
     @PostMapping
     public ResponseEntity<EventResponse> addEvent(@Valid @RequestBody EventRequest eventRequest) {
         return new ResponseEntity<>(eventService.addEvent(eventRequest), HttpStatus.CREATED);

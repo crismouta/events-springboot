@@ -10,6 +10,7 @@ public record EventRequest(
         @Size(min = 2, max = 50, message = "Name must contain min 2 and max 50 characters")
         String name,
         @NotBlank(message = "Description is required")
+        @Size(min = 2, max = 50, message = "Description must contain min 2 and max 50 characters")
         String description,
         Double price,
         List<String> categoryNames
