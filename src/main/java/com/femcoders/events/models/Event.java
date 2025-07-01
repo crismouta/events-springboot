@@ -2,6 +2,8 @@ package com.femcoders.events.models;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name="events")
 public class Event {
@@ -12,18 +14,22 @@ public class Event {
     private String description;
     private double price;
 
-    @ManyToOne
-    @JoinColumn(name = "category_id")
-    private Category category;
+    @ManyToMany
+    @JoinTable (
+            name = "event_category",
+            joinColumns = @JoinColumn(name = "event_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id")
+    )
+    private List<Category> categories;
 
     public Event() {
     }
 
-    public Event(String name, String description,  Double price, Category category) {
+    public Event(String name, String description,  Double price, List<Category> categories) {
         this.name= name;
         this.description =description;
         this.price=price;
-        this.category=category;
+        this.categories=categories;
     }
 
     public Long getId() {
@@ -58,11 +64,11 @@ public class Event {
         this.price = price;
     }
 
-    public Category getCategory() {
-        return category;
+    public List<Category> getCategories() {
+        return categories;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
     }
 }

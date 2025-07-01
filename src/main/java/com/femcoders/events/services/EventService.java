@@ -27,8 +27,10 @@ public class EventService {
     }
 
     public EventResponse addEvent(EventRequest eventRequest){
-        Category foundCategory = categoryRepository.findByName(eventRequest.categoryName()).orElseThrow(() -> new IllegalArgumentException("Category not found"));
-        Event newEvent = EventMapper.dtoToEntity(eventRequest, foundCategory);
+        //Category foundCategory = categoryRepository.findByName(eventRequest.categoryName()).orElseThrow(() -> new IllegalArgumentException("Category not found"));
+        List<Category> categories = eventRequest.categoryNames().stream()
+                .map(name -> categoryRepository.findByName(name).orElseThrow(() -> new IllegalArgumentException("Category not found"))).toList();
+        Event newEvent = EventMapper.dtoToEntity(eventRequest, categories);
         Event savedEvent = eventRepository.save(newEvent);
         return EventMapper.entityToDto(savedEvent);
     }

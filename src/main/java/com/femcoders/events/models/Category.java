@@ -13,7 +13,7 @@ public class Category {
     private Long id;
     private String name;
 
-    @OneToMany(mappedBy = "category")
+    @ManyToMany(mappedBy = "categories")
     private List<Event> events = new ArrayList<>();
 
     public Category() {
