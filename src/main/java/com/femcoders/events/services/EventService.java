@@ -4,7 +4,6 @@ import com.femcoders.events.dtos.event.EventMapper;
 import com.femcoders.events.dtos.event.EventRequest;
 import com.femcoders.events.dtos.event.EventResponse;
 import com.femcoders.events.exception.EntityNotFoundException;
-import com.femcoders.events.exception.EventNotFoundException;
 import com.femcoders.events.models.Category;
 import com.femcoders.events.models.Event;
 import com.femcoders.events.repositories.CategoryRepository;

@@ -3,11 +3,8 @@ package com.femcoders.events.services;
 import com.femcoders.events.dtos.category.CategoryMapper;
 import com.femcoders.events.dtos.category.CategoryRequest;
 import com.femcoders.events.dtos.category.CategoryResponse;
-import com.femcoders.events.dtos.event.EventMapper;
-import com.femcoders.events.dtos.event.EventResponse;
 import com.femcoders.events.exception.EntityNotFoundException;
 import com.femcoders.events.models.Category;
-import com.femcoders.events.models.Event;
 import com.femcoders.events.repositories.CategoryRepository;
 import org.springframework.stereotype.Service;
 
