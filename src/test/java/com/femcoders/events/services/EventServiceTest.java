@@ -69,7 +69,9 @@ public class EventServiceTest {
         EventResponse response = eventService.addEvent(request);
 
         // Then
-        assertThat(response.name()).isEqualTo("Event 3");
+        assertThat(response.name()).isEqualTo(request.name());
+        assertThat(response.description()).isEqualTo(request.description());
+        assertThat(response.price()).isEqualTo(request.price());
         verify(eventRepository, times(1)).save(any(Event.class));
     }
 }

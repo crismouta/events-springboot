@@ -30,9 +30,6 @@ public class EventControllerTest {
     MockMvc mockMvc;
 
     @Autowired
-    EventService eventService;
-
-    @Autowired
     EventRepository eventRepository;
 
     @Autowired
@@ -51,7 +48,7 @@ public class EventControllerTest {
         mockMvc.perform(get("/events")
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$", Matchers.hasSize(2)))
+                .andExpect(jsonPath("$.length()").value(2))
                 .andExpect(jsonPath("$[0].name").value("Event 1"))
                 .andExpect(jsonPath("$[1].name").value("Event 2"))
                 .andExpect(jsonPath("$[0].description").value("El mejor evento"))
